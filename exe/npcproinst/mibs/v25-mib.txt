@@ -1,0 +1,1069 @@
+V25-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+     enterprises, OBJECT-TYPE                                            FROM RFC1155-SMI
+--     mib-2                                                             FROM RFC1213-MIB
+     TRAP-TYPE                                                           FROM RFC-1215;
+
+smartTechULC OBJECT IDENTIFIER
+        ::= { enterprises 29485}
+
+smartTechProducts OBJECT IDENTIFIER
+        ::= {smartTechULC 3}
+
+smartTechEmbeddedProducts OBJECT IDENTIFIER
+        ::= {smartTechProducts 2}
+
+v25 OBJECT IDENTIFIER 
+        ::= { smartTechEmbeddedProducts 7 }
+
+powerState OBJECT-TYPE
+        SYNTAX  INTEGER { 
+                        onState(1),
+                        offState(2),
+                        poweringOnState(3),
+                        coolingState(4),
+                        confirmOffState(5)
+                        }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Write to on/off to turn the projector on or off.  Cooling and powering status only for reads."
+        ::= { v25 1 }
+
+
+video OBJECT IDENTIFIER 
+        ::= { v25 2 }
+
+inputSource OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        vga1(1),
+                        composite(3),
+                        svideo(4)
+                         }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "To display the current input source as well as
+                switch between input sources. Set to the following
+                to switch to the specified source:
+                1: VGA-I 1
+                3: Composite
+                4: S-Video"
+        ::= { video 1 }
+
+vga1 OBJECT IDENTIFIER 
+        ::= { video 2 }
+
+vga1DisplayMode OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        brightRoom(1),
+                        darkRoom(2),
+                        sRGB(3),
+                        user(4),
+                        smartPresentation(5) }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Display Mode"
+        DEFVAL { smartPresentation }
+        ::= { vga1 1 }
+
+vga1Brightness OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Brightness."
+        ::= { vga1 2 }
+
+vga1Contrast OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Contrast."
+        ::= { vga1 3 }
+
+vga1Frequency OBJECT-TYPE
+        SYNTAX  INTEGER (-5..5)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Frequency"
+        ::= { vga1 4 }
+
+vga1Tracking OBJECT-TYPE
+        SYNTAX  INTEGER (0..63)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Tracking"
+        ::= { vga1 5 }
+
+vga1WhitePeaking OBJECT-TYPE
+        SYNTAX  INTEGER (0..10)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video White Peaking"
+        ::= { vga1 6 }
+
+vga1Degamma OBJECT-TYPE
+        SYNTAX  INTEGER (0..3)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Degamma"
+        ::= { vga1 7 }
+
+vga1Red OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Red"
+        ::= { vga1 8 }
+
+vga1Green OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Green"
+        ::= { vga1 9 }
+vga1Blue OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Blue"
+        ::= { vga1 10 }
+vga1Cyan OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Cyan"
+        ::= { vga1 11 }
+vga1Magenta OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Magenta"
+        ::= { vga1 12 }
+vga1Yellow OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Yellow"
+        ::= { vga1 13 }
+
+composite OBJECT IDENTIFIER 
+        ::= { video 4 }
+
+compositeDisplayMode OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        brightRoom(1),
+                        darkRoom(2),
+                        sRGB(3),
+                        user(4),
+                        smartPresentation(5)  }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Display Mode"
+        DEFVAL { smartPresentation }
+        ::= { composite 1 }
+
+compositeBrightness OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Brightness."
+        ::= { composite 2 }
+
+compositeContrast OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Contrast."
+        ::= { composite 3 }
+
+compositeSaturation OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Saturation"
+        ::= { composite 4 }
+
+compositeTint OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Tint"
+        ::= { composite 5 }
+
+compositeSharpness OBJECT-TYPE
+        SYNTAX  INTEGER (0..31)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Sharpness"
+        ::= { composite 6 }
+
+compositeWhitepeaking OBJECT-TYPE
+        SYNTAX  INTEGER (0..10)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video White Peaking"
+        ::= { composite 7 }
+
+compositeDegamma OBJECT-TYPE
+        SYNTAX  INTEGER (0..3)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Degamma"
+        ::= { composite 8 }
+
+compositeRed OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Red"
+        ::= { composite 9 }
+
+compositeGreen OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Green"
+        ::= { composite 10 }
+compositeBlue OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Blue"
+        ::= { composite 11 }
+compositeCyan OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Cyan"
+        ::= { composite 12 }
+compositeMagenta OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Magenta"
+        ::= { composite 13 }
+compositeYellow OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Yellow"
+        ::= { composite 14 }
+
+svideo OBJECT IDENTIFIER 
+        ::= { video 5 }
+svideoDisplayMode OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        brightRoom(1),
+                        darkRoom(2),
+                        sRGB(3),
+                        user(4),
+                        smartPresentation(5)  }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Display Mode"
+        DEFVAL { smartPresentation }
+        ::= { svideo 1 }
+
+svideoBrightness OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Brightness."
+        ::= { svideo 2 }
+
+svideoContrast OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Contrast."
+        ::= { svideo 3 }
+
+svideoSaturation OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Saturation"
+        ::= { svideo 4 }
+
+svideoTint OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Tint"
+        ::= { svideo 5 }
+
+svideoSharpness OBJECT-TYPE
+        SYNTAX  INTEGER (0..31)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Sharpness"
+        ::= { svideo 6 }
+
+svideoWhitepeaking OBJECT-TYPE
+        SYNTAX  INTEGER (0..10)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video White Peaking"
+        ::= { svideo 7 }
+
+svideoDegamma OBJECT-TYPE
+        SYNTAX  INTEGER (0..3)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Degamma"
+        ::= { svideo 8 }
+
+svideoRed OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Red"
+        ::= { svideo 9 }
+
+svideoGreen OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Green"
+        ::= { svideo 10 }
+svideoBlue OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Blue"
+        ::= { svideo 11 }
+svideoCyan OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Cyan"
+        ::= { svideo 12 }
+svideoMagenta OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Magenta"
+        ::= { svideo 13 }
+svideoYellow OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Yellow"
+        ::= { svideo 14 }
+
+currentInput OBJECT IDENTIFIER 
+        ::= { video 6 }
+
+displayMode OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        brightRoom(1),
+                        darkRoom(2),
+                        sRGB(3),
+                        user(4),
+                        smartPresentation(5)  }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Display Mode"
+        DEFVAL { smartPresentation }
+        ::= { currentInput 1 }
+
+brightness OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Brightness."
+        ::= { currentInput 2 }
+
+contrast OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Contrast."
+        ::= { currentInput 3 }
+
+frequency OBJECT-TYPE
+        SYNTAX  INTEGER (-5..5)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Frequency"
+        ::= { currentInput 4 }
+
+tracking OBJECT-TYPE
+        SYNTAX  INTEGER (0..63)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Tracking"
+        ::= { currentInput 5 }
+
+saturation OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Saturation"
+        ::= { currentInput 6 }
+
+tint OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Tint"
+        ::= { currentInput 7 }
+
+sharpness OBJECT-TYPE
+        SYNTAX  INTEGER (0..31)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Sharpness"
+        ::= { currentInput 8 }
+
+whitepeaking OBJECT-TYPE
+        SYNTAX  INTEGER (0..10)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video White Peaking"
+        ::= { currentInput 9 }
+
+degamma OBJECT-TYPE
+        SYNTAX  INTEGER (0..3)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Degamma"
+        ::= { currentInput 10 }
+
+red OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Red"
+        ::= { currentInput 11 }
+
+green OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Green"
+        ::= { currentInput 12 }
+blue OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Blue"
+        ::= { currentInput 13 }
+cyan OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Cyan"
+        ::= { currentInput 14 }
+magenta OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Magenta"
+        ::= { currentInput 15 }
+yellow OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Yellow"
+        ::= { currentInput 16 }
+
+aspectRatio OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        fill(1),
+                        match(2),
+                        widescreen169(3) }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Aspect Ratio"
+        DEFVAL { fill }
+        ::= { video 7 }
+
+zoom OBJECT-TYPE
+        SYNTAX  INTEGER (0..30)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Zoom"
+        ::= { video 8 }
+
+hposition OBJECT-TYPE
+        SYNTAX  INTEGER (0..100)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Horizontal Position"
+        ::= { video 9 }
+
+vposition OBJECT-TYPE
+        SYNTAX  INTEGER (-5..5)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Vertical Position"
+        ::= { video 10 }
+
+
+videoMute OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        videomuteoff(1),
+                        videomuteon(2)  }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Video Mute enable/disable"
+        DEFVAL { videomuteoff }
+        ::= { video 12 }
+
+videoFreeze OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        unfreeze(1),
+                        freeze(2)  }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Freeze / Unfreeze the Video Display"
+        DEFVAL { unfreeze }
+        ::= { video 13 }
+
+audio OBJECT IDENTIFIER 
+        ::= { v25 3 }
+
+audioVolume OBJECT-TYPE
+        SYNTAX  INTEGER (-20..20)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Audio volume.
+                -20 is the minimum and 20 is the maximum."
+        ::= { audio 1 }
+
+
+audioMute OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        muteoff(1),
+                        muteon(2) }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "To mute audio set to 2.
+                To un-mute audio set to 1."
+        DEFVAL { muteoff }
+        ::= { audio 2 }
+
+audioVolumeControl OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        controloff(1),
+                        controlon(2) }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "To control the audio, set to 2.
+                To not control the audio, set to 1."
+        DEFVAL { controlon }
+        ::= { audio 3 }
+
+audioCloseCaptioning OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        ccoff(1),
+                        ccon(2) }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Enable close captioning set to 2.
+                To disable close captioning set to 1."
+        DEFVAL { ccoff }
+        ::= { audio 4 }
+
+audioCloseCaptioningLanguage OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        cc1(1),
+                        cc2(2) }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Close Captioning Language CC1/CC2"
+        DEFVAL { cc1 }
+        ::= { audio 5 }
+
+network OBJECT IDENTIFIER 
+        ::= { v25 4 }
+
+netStatus OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        connected(1),
+                        disconnected(2) }
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "Status of the network.  Currently it will always be connected if this can be read."
+        DEFVAL { connected }
+        ::= { network 1 }
+
+netDHCP OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        disable(1),
+                        enable(2) }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "To enable DHCP set to 2.
+                To disable DHCP set to 1.
+                    Note: you must reboot for
+                    static setings to take effect."
+        DEFVAL { enable }
+        ::= { network 2 }
+
+netIPAddress OBJECT-TYPE
+        SYNTAX  IpAddress
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "IP Address of the device."
+        ::= { network 3 }
+
+netSubnetMask OBJECT-TYPE
+        SYNTAX  IpAddress
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "IP Configuration Netmask."
+        ::= { network 4 }
+
+netGateway OBJECT-TYPE
+        SYNTAX  IpAddress
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Gateway configuration."
+        ::= { network 5 }
+
+netPrimaryDNS OBJECT-TYPE
+        SYNTAX  IpAddress
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Primary DNS Server configuration."
+        ::= { network 6 }
+
+netMacAddress OBJECT-TYPE
+        SYNTAX  OCTET STRING
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "MAC Address."
+        ::= { network 7 }
+
+config OBJECT IDENTIFIER 
+        ::= { v25 5 }
+
+configLanguage OBJECT-TYPE
+        SYNTAX  INTEGER {
+                        english(1),
+                        spanish(2),
+                        french(3),
+                        brazilianPortuguese(4),
+                        japanese(5),
+                        simplifiedChinese(6),
+                        traditionalChinese(7),
+                        korean(8),
+                        german(9),
+                        italian(10),
+                        dutch(11),
+                        danish(12),
+                        finnish(13),
+                        greek(14),
+                        norwegian(15),
+                        polish(16),
+                        czech(17),
+                        swedish(18),
+                        iberianPortuguese(19),
+                        russian(20)
+                        }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Set to the following to switch between 
+                different languages:
+                 1: English
+                 2: Spanish
+                 3: French
+                 4: Brazilian Portuguese
+                 5: Japanese
+                 6: Simplified Chinese
+                 7: Traditional Chinese
+                 8: Korean
+                 9: German
+                10: Italian
+                11: Dutch
+                12: Danish
+                13: Finnish
+                14: Greek
+                15: Norwegian
+                16: Polish
+                17: Czech
+                18: Swedish
+                19: Iberian Portuguese
+                20: Russian"
+        DEFVAL { english }
+        ::= { config 1 }
+
+configReset OBJECT-TYPE
+        SYNTAX  INTEGER { reset(1) }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Set to 1 will cause the projector to reset."
+        ::= { config 2 }
+
+
+sysInfo OBJECT IDENTIFIER 
+        ::= { v25 6 }
+
+sysInfoInputFormat OBJECT-TYPE
+        SYNTAX  OCTET STRING
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "Current Resolution the system is receiving and outputting. 
+                 If no signal is detected, `no signal` should be returned."
+        ::= { sysInfo 1 }
+
+sysInfoFWVerDDP OBJECT-TYPE
+        SYNTAX  OCTET STRING
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "DDP Firmware Version"
+        ::= { sysInfo 2 }
+
+
+sysInfoLampHour OBJECT-TYPE
+        SYNTAX  INTEGER
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Attached Projector Lamp Hours.  If 
+                written to a value of zero, the value is
+                reset.  All other writes are ignored.
+                "
+        ::= { sysInfo 3 }
+
+sysAutoSignal OBJECT-TYPE
+        SYNTAX  INTEGER {
+                         on(1),
+                         off(2)
+                        }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Turn on/off autosignal."
+        ::= { sysInfo 4 }
+
+sysLampReminder OBJECT-TYPE
+        SYNTAX  INTEGER { 
+                        on(1),
+                        off(2)
+                        }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Turn on/off lamp reminder."
+        ::= { sysInfo 5 }
+
+sysHighBrightness OBJECT-TYPE
+        SYNTAX  INTEGER { 
+                        on(1),
+                        off(2)
+                        }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Turn on/off high brightness."
+        ::= { sysInfo 6 }
+
+sysAutoPowerOff OBJECT-TYPE
+        SYNTAX  INTEGER (0..240)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Turn on/off auto Power Off."
+        ::= { sysInfo 7 }
+
+sysProjectorID OBJECT-TYPE
+        SYNTAX  INTEGER (0..99)
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Projector ID"
+        ::= { sysInfo 8 }
+
+sysStartupScreen OBJECT-TYPE
+        SYNTAX  INTEGER { 
+                        smart(1),
+                        usercapture(2),
+                        preview(3)
+                        }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Startup Screen."
+        ::= { sysInfo 10 }
+
+sysGroupName OBJECT-TYPE
+        SYNTAX  OCTET STRING
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "Projector Group Name"
+        ::= { sysInfo 11 }
+
+sysProjectorName OBJECT-TYPE
+        SYNTAX  OCTET STRING
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "Projector Name."
+        ::= { sysInfo 12 }
+
+sysLocation OBJECT-TYPE
+        SYNTAX  OCTET STRING
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "Location"
+        ::= { sysInfo 13 }
+
+sysContact OBJECT-TYPE
+        SYNTAX  OCTET STRING
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "Contact"
+        ::= { sysInfo 14 }
+
+sysDisplayHour OBJECT-TYPE
+        SYNTAX  INTEGER (0..20000)
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "Display Hours."
+        ::= { sysInfo 15 }
+
+sysModelNumber OBJECT-TYPE
+        SYNTAX  OCTET STRING
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "Model Number of the projector"
+        ::= { sysInfo 16 }
+
+sysInfoFWVerMpu OBJECT-TYPE
+        SYNTAX  OCTET STRING
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "MPU Firmware Version"
+        ::= { sysInfo 17 }
+
+sysInfoFWVerNet OBJECT-TYPE
+        SYNTAX  OCTET STRING
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "NET Firmware Version"
+        ::= { sysInfo 18 }
+
+sysInfoSerialNumber OBJECT-TYPE
+        SYNTAX  OCTET STRING
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "Projector Serial Number"
+        ::= { sysInfo 19 }
+
+serviceMenu OBJECT IDENTIFIER 
+        ::= { v25 7 }
+
+serviceFailureLog OBJECT-TYPE
+        SYNTAX  INTEGER { 
+                        normal(1),
+                        overtemp(2),
+                        fanlock(3),
+                        lamperror(4),
+                        colorwheelbreak(5),
+                        lampoverheat(6),
+                        lampdriver(7)
+                        }
+        ACCESS read-only
+        STATUS  mandatory
+        DESCRIPTION
+                "Failure log"
+        ::= { serviceMenu 1 }
+
+serviceRestoreDefaults OBJECT-TYPE
+        SYNTAX  INTEGER { restore(1) }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Set to 1 to restore factory defaults.
+                NOTE: V25 will reboot immediately after."
+        ::= { serviceMenu 2 }
+
+serviceHighSpeedFan OBJECT-TYPE
+        SYNTAX  INTEGER { 
+                        high(1),
+                        normal(2)
+                        }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Fan Speed"
+        ::= { serviceMenu 3 }
+
+serviceProjectionMode OBJECT-TYPE
+        SYNTAX  INTEGER { 
+                        front(1),
+                        ceiling(2),
+                        rear(3),
+                        rearceiling(4)
+                        }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Projection Mode."
+        ::= { serviceMenu 4 }
+
+threeD OBJECT IDENTIFIER 
+        ::= { v25 8 }
+
+threeDEnable OBJECT-TYPE
+        SYNTAX  INTEGER {
+                         on(1),
+                         off(2)
+                        }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "3D mode on/off"
+        ::= { threeD 1 }
+
+threeDInvert OBJECT-TYPE
+        SYNTAX  INTEGER {
+                         leftRight(1),
+                         rightLeft(2)
+                        }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "3D invert mode.  Left then right / Right before left"
+        ::= { threeD 2 }
+
+threeDFormat OBJECT-TYPE
+        SYNTAX  INTEGER {
+                         interleaved(1),
+                         overunder(2)
+                        }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "3D format mode"
+        ::= { threeD 3 }
+
+emergencyAlert OBJECT IDENTIFIER 
+        ::= { v25 9 }
+
+emergencyDisplay OBJECT-TYPE
+        SYNTAX  INTEGER {
+                         on(1),
+                         off(2)
+                        }
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Display the Emergency Alert message"
+        ::= { emergencyAlert 1 }
+
+emergencyAlertMsg OBJECT-TYPE
+        SYNTAX  OCTET STRING
+        ACCESS read-write
+        STATUS  mandatory
+        DESCRIPTION
+                "Define the emergency message"
+        ::= { emergencyAlert 2 }
+
+failureLogTrap TRAP-TYPE
+        ENTERPRISE  smartTechULC
+        VARIABLES   { serviceFailureLog }
+        DESCRIPTION
+                    "A failure has occured.  Send out the notification!"
+        ::= 1
+
+powerStateChange TRAP-TYPE
+        ENTERPRISE  smartTechULC
+        VARIABLES   { powerState }
+        DESCRIPTION
+                    "Power state on the projector has changed."
+        ::= 2
+
+END
