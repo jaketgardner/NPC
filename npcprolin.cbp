@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="npcpro" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/npcpro" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="`wx-config  --version=3.0 --static=no --unicode=yes --debug=no --cflags`" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="`wx-config  --version=3.0 --static=no --unicode=yes --debug=no --libs`" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="npcproAll.cpp" />
+		<Unit filename="npcproAllAdv.cpp" />
+		<Unit filename="npcproAllAdv.h" />
+		<Unit filename="npcproApp.cpp" />
+		<Unit filename="npcproApp.h" />
+		<Unit filename="npcproMain.cpp" />
+		<Unit filename="npcproMain.h" />
+		<Unit filename="npcproOne.cpp" />
+		<Unit filename="npcproOneAdv.cpp" />
+		<Unit filename="npcproOneAdv.h" />
+		<Unit filename="resource.rc">
+			<Option compile="0" />
+			<Option link="0" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="npcproApp.cpp" main="npcproFrame" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxFrame wxs="wxsmith/npcproframe.wxs" src="npcproMain.cpp" hdr="npcproMain.h" fwddecl="0" i18n="1" name="npcproFrame" language="CPP" />
+				</resources>
+			</wxsmith>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

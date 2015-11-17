@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="npcproFrame">
+		<title>Networked Projector Control</title>
+		<icon>icon</icon>
+		<fg>wxSYS_COLOUR_WINDOWTEXT</fg>
+		<bg>wxSYS_COLOUR_MENU</bg>
+		<id_arg>0</id_arg>
+		<object class="wxGridBagSizer" variable="GridBagSizer1" member="no">
+			<object class="sizeritem">
+				<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextPass" member="yes">
+					<value>password</value>
+					<size>120,25</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<style>wxTE_PASSWORD</style>
+					<handler function="OnTextCtrl1Text" entry="EVT_TEXT" />
+				</object>
+				<col>0</col>
+				<row>1</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextRoom" member="yes">
+					<value>Room #</value>
+					<size>120,25</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<handler function="OnTextRoomText" entry="EVT_TEXT" />
+				</object>
+				<col>0</col>
+				<row>3</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxButton" name="ID_BUTTON1" variable="CheckPass" member="yes">
+					<label>Check</label>
+					<default>1</default>
+					<size>120,25</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<handler function="OnButton1Click" entry="EVT_BUTTON" />
+				</object>
+				<col>1</col>
+				<row>1</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
+					<label>Networked Projector Control Pro 0.1</label>
+					<size>250,25</size>
+					<font>
+						<size>11</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+				</object>
+				<colspan>2</colspan>
+				<col>0</col>
+				<row>0</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
+					<label>  One Board Config</label>
+					<size>120,15</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+				</object>
+				<col>0</col>
+				<row>2</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
+					<label>    All Board Config</label>
+					<size>120,15</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+				</object>
+				<col>1</col>
+				<row>2</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxButton" name="ID_BUTTON2" variable="OneStatButton" member="yes">
+					<label>Board Status</label>
+					<size>120,25</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<handler function="OnOneStatButtonClick" entry="EVT_BUTTON" />
+				</object>
+				<col>0</col>
+				<row>4</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxButton" name="ID_BUTTON3" variable="OneBulbButton" member="yes">
+					<label>Board Bulb Life</label>
+					<size>120,25</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<handler function="OnOneBulbButtonClick" entry="EVT_BUTTON" />
+				</object>
+				<col>0</col>
+				<row>5</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxButton" name="ID_BUTTON4" variable="OneOffButton" member="yes">
+					<label>Board Off</label>
+					<size>120,25</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<handler function="OnOneOffButtonClick" entry="EVT_BUTTON" />
+				</object>
+				<col>0</col>
+				<row>6</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxButton" name="ID_BUTTON5" variable="EBroadButton" member="yes">
+					<label>Emergency Broadcast</label>
+					<size>120,25</size>
+					<fg>#FF0000</fg>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<handler function="OnEBroadButtonClick" entry="EVT_BUTTON" />
+				</object>
+				<col>1</col>
+				<row>3</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxButton" name="ID_BUTTON6" variable="AllStatButton" member="yes">
+					<label>All Status</label>
+					<size>120,25</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<handler function="OnAllStatButtonClick" entry="EVT_BUTTON" />
+				</object>
+				<col>1</col>
+				<row>4</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxButton" name="ID_BUTTON7" variable="AllBulbButton" member="yes">
+					<label>All Bulb Life</label>
+					<size>120,25</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<handler function="OnAllBulbButtonClick" entry="EVT_BUTTON" />
+				</object>
+				<col>1</col>
+				<row>5</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxButton" name="ID_BUTTON8" variable="AllOffButton" member="yes">
+					<label>All Off</label>
+					<size>120,25</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<handler function="OnAllOffButtonClick" entry="EVT_BUTTON" />
+				</object>
+				<col>1</col>
+				<row>6</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxButton" name="ID_BUTTON9" variable="UnEBroadButton" member="yes">
+					<label>Undo Emergency</label>
+					<size>120,25</size>
+					<fg>#FF0000</fg>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<handler function="OnUnEBroadButtonClick" entry="EVT_BUTTON" />
+				</object>
+				<col>1</col>
+				<row>7</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxComboBox" name="ID_COMBOBOX1" variable="AdvancedChoice" member="yes">
+					<content>
+						<item>One Advanced Menu</item>
+						<item>Get Service Failure Status</item>
+						<item>Get Any Value</item>
+						<item>Set Any Value</item>
+						<item>Get Serial Number to Log</item>
+						<item>Set Projector ID</item>
+						<item>Set Mute On</item>
+						<item>Set Mute Off</item>
+						<item>Set Autosignal On</item>
+						<item>Set Input Selection</item>
+						<item>Set Auto Powerdown Time</item>
+					</content>
+					<selection>0</selection>
+					<size>250,25</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<handler function="OnAdvancedChoiceSelected" entry="EVT_COMBOBOX" />
+				</object>
+				<colspan>2</colspan>
+				<col>0</col>
+				<row>9</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxComboBox" name="ID_COMBOBOX2" variable="AdvancedChoiceAll" member="yes">
+					<content>
+						<item>All Advanced Menu</item>
+						<item>Get Service Failure Status</item>
+						<item>Get Any Value</item>
+						<item>Get Serial Number to CSV</item>
+						<item>Set Projector IDs</item>
+						<item>Set Mute On</item>
+						<item>Set Mute Off</item>
+						<item>Set Autosignal On</item>
+						<item>Set Input Selection</item>
+						<item>Set Auto Powerdown Time</item>
+					</content>
+					<selection>0</selection>
+					<size>250,25</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<handler function="OnAdvancedChoiceAllSelected" entry="EVT_COMBOBOX" />
+				</object>
+				<colspan>2</colspan>
+				<col>0</col>
+				<row>8</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxButton" name="ID_BUTTON10" variable="ConfButton" member="yes">
+					<label>Config Editor</label>
+					<size>120,25</size>
+					<fg>#1CA99E</fg>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<style>wxDOUBLE_BORDER</style>
+					<handler function="OnConfButtonClick" entry="EVT_BUTTON" />
+				</object>
+				<col>0</col>
+				<row>7</row>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="TextLog" member="yes">
+					<value>To Prevent Freezes please check all installed config files.&#x0A;</value>
+					<size>400,328</size>
+					<font>
+						<size>8</size>
+						<sysfont>wxSYS_DEFAULT_GUI_FONT</sysfont>
+					</font>
+					<style>wxTE_MULTILINE|wxTE_READONLY</style>
+					<handler function="OnTextCtrl3Text" entry="EVT_TEXT" />
+				</object>
+				<rowspan>10</rowspan>
+				<col>2</col>
+				<row>0</row>
+				<flag>wxALL|wxALIGN_LEFT|wxALIGN_TOP</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+		</object>
+		<object class="wxTextEntryDialog" name="ID_TEXTENTRYDIALOG1" variable="TextEntryDialog1" member="yes">
+			<caption></caption>
+		</object>
+		<object class="wxStatusBar" name="ID_STATUSBAR1" variable="StatusBar1" member="yes">
+			<fields>1</fields>
+			<widths>-10</widths>
+			<styles>wxSB_NORMAL</styles>
+		</object>
+	</object>
+</wxsmith>

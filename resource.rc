@@ -1,0 +1,3 @@
+aaaa ICON "wx/msw/npc.ico"
+
+#include "wx/msw/wx.rc"
